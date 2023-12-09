@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:serve":"ng build && python app.py",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
