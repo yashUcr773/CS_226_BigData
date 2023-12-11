@@ -1,6 +1,15 @@
-<h1>Airbnb Search Engine</h1>
-<label for="queryInput">Enter Location:</label>
-<input type="text" id="queryInput" placeholder="E.g., Los Angeles">
-<button (click)="executeQuery()">Search</button>
+<header class="section-component">
+    <h1>Airbnb Search Engine</h1>
+</header>
 
-<div id="resultContainer"></div>
+<section class="section-component" id="query-section">
+    <app-search (newItemEvent)=results_fetch_event($event)></app-search>
+</section>
+
+<section class="section-component time-analysis">
+    <app-time-analysis [num_results]=num_results [time]=time_elapsed></app-time-analysis>
+</section>
+
+<section class="section-component" *ngIf="num_results>0">
+    <app-results-display [data]=results></app-results-display>
+</section>

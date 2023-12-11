@@ -1,0 +1,22 @@
+<div class="listing-container">
+    <div class="body section">
+        <div class="header section">
+            <div class="name"><span class="title">Listing Name: </span><span>{{listing_data.name}}</span></div>
+            <div class="host_name"><span class="title">Host Name: </span><span>{{listing_data.host_name}}</span></div>
+            <div class="state"><span class="title">Location: </span><span>{{listing_data.state}}</span></div>
+        </div>
+        <div class="living-area section">
+            <div class="bathroom"><span class="title">No. of Baths:
+                </span><span>{{listing_data.bedrooms}}</span><span>Baths</span>
+            </div>
+            <div class="beds"><span class="title">No. of Beds:
+                </span><span>{{listing_data.beds}}</span><span>Beds</span></div>
+        </div>
+    </div>
+    <div class="desc section">
+        <div class="content">
+            <span class="title">Description</span>
+            <p [innerHTML]="listing_data.description"></p>
+        </div>
+    </div>
+</div>

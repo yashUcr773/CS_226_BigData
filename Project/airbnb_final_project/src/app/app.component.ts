@@ -7,48 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     title = 'airbnb_final_project';
+    results: any;
+    time_elapsed: any;
+    num_results: any;
 
     constructor() {
 
     }
 
-  async executeQuery() {
-    const queryInput:any = document.getElementById('queryInput');
-    const resultContainer:any = document.getElementById('resultContainer');
-
-    // Get user-entered location
-    const location = queryInput.value.trim();
-
-    if (location === '') {
-        alert('Please enter a location.');
-        return;
+    results_fetch_event(event: any) {
+        this.results = event.results
+        this.time_elapsed = event.time_elapsed
+        this.num_results = event.results.length
     }
 
-    // Prepare the query
-    const query = `SELECT * FROM parquet_data2 WHERE host_location LIKE '%${location}%'`;
 
-    try {
-        // Send the query to the backend
-        const response = await fetch('/query', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ query })
-        });
-
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status}`);
-        }
-
-        // Parse the response as JSON
-        const result = await response.json();
-
-        // Display the result in the result container
-        resultContainer.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
-    } catch (error:any) {
-        console.error('Error executing query:', error.message);
-        resultContainer.innerHTML = `<p>Error executing query. Please try again.</p>`;
-    }
-}
 }

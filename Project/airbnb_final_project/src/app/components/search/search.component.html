@@ -1,0 +1,25 @@
+<div class="query-container">
+    <label class="label" for="queryInputLocation">Enter State (Required):</label>
+    <input class="input-style" type="text" id="queryInputLocation" placeholder="E.g., Los Angeles">
+
+    <label class="label" for="queryInputBaths">Number of Baths (Optional):</label>
+    <input [defaultValue]="0" class="input-style" type="text" id="queryInputBaths" placeholder="E.g. 1, 1.5">
+
+    <label class="label" for="queryInputBeds">Number of Beds (Optional):</label>
+    <input [defaultValue]="0" class="input-style" type="text" id="queryInputBeds" placeholder="E.g. 1, 1.5">
+
+    <button (click)="executeQuery()">Search</button>
+</div>
+
+<div class="loader-container" *ngIf=show_loader>
+    <div class="dot-spinner">
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+    </div>
+</div>

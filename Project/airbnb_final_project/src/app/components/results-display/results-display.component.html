@@ -1,0 +1,16 @@
+<!-- pagination -->
+<div class="pagination-container">
+    <div class="pagination">
+        <a (click)=goToPage(curr_page-1)>&laquo;</a>
+        <p>Displaying {{curr_page * results_per_page}}-{{(curr_page + 1) * (results_per_page)}} of
+            {{total_results_count}}
+            results.</p>
+        <a (click)=goToPage(curr_page+1)>&raquo;</a>
+    </div>
+</div>
+<!-- results container -->
+<div class="results-container">
+    <div *ngFor="let dataObj of results_to_display">
+        <app-display-listing [listing_data]=dataObj></app-display-listing>
+    </div>
+</div>
